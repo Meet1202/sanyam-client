@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "105946985786",
+    "firebase_url": "https://sanyam-2c1d8.firebaseio.com",
+    "project_id": "sanyam-2c1d8",
+    "storage_bucket": "sanyam-2c1d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105946985786:android:94bda69e2b5a14f2614c03",
+        "android_client_info": {
+          "package_name": "sanyam.client.io"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105946985786-625869i9jlba5sbpjblbksurmhhbl75g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB8IsCTVHTtxP5R_dLS6GB9JS47ylU_Eg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105946985786-625869i9jlba5sbpjblbksurmhhbl75g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

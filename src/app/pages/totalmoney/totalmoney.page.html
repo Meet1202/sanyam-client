@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Your Money</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <h3 class="text-center">Monthly Data</h3>
+    <ion-item>
+      <ion-label position="floating">Month:</ion-label>
+      <ion-select placeholder="Select Month" [(ngModel)]="month">
+        <ion-select-option *ngFor="let month of monthOptions; let i = index" value="{{i+1}}">{{month}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Year:</ion-label>
+      <ion-select placeholder="Select Month" [(ngModel)]="year">
+        <ion-select-option *ngFor="let year of yearOptions" value="{{year}}">{{year}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button color='primary' (click)='showData()' [disabled]="month==null || year==null">Show</ion-button>
+    <h4 class="text-center" *ngIf="month && year">Total money is {{totalMoney}}.</h4>
+  </ion-list>
+
+
+  <ion-list lines="full">
+    <h3 class="text-center">Yearly Data</h3>
+    <ion-item>
+      <ion-label position="floating">Year:</ion-label>
+      <ion-select placeholder="Select Month" [(ngModel)]="yearly">
+        <ion-select-option *ngFor="let yearly of yearOptions" value="{{yearly}}">{{yearly}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button color='primary' (click)='yearlyData()' [disabled]="yearly == null">Show</ion-button>
+    <h4 class="text-center">Total money is {{yearlyMoney}}</h4>
+  </ion-list>
+</ion-content>

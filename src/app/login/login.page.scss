@@ -1,0 +1,29 @@
+.body{
+  background: linear-gradient(to bottom right, #33ccff 0%, #ff99cc 100%);
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+
+  .login{
+    width: 100%;
+    .image-css{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: 200px;
+      width: 200px;
+    }
+    .card{
+      border-radius: 5%;
+      box-shadow: 0 0 10px gray;
+    }
+    .form{
+      background-color: white;
+      .loginBtn{
+        margin-top: 20%;
+      }
+    }
+  }
+
+}

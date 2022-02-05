@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Edit Profile  </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item class="mt-4" >
+      <ion-avatar class="image-css">
+        <ion-img *ngIf="image" [src]="image"></ion-img>
+        <ion-img *ngIf="!image" [src]="user.image"></ion-img>
+        <ion-img *ngIf="!image && !user.image" style="margin-top: -150px" src="assets/img/person-icon.png"></ion-img>
+      </ion-avatar>
+    </ion-item>
+
+    <input type="file" class="form-control" (change)="chooseFile($event)" [(ngModel)]="user.image"/>
+
+<!--    <ion-item>-->
+<!--      <ion-button color="primary" (click)="uploadImage()">Upload Image</ion-button>-->
+<!--    </ion-item>-->
+
+
+    <ion-item>
+      <ion-label position='floating'>Email</ion-label>
+      <ion-input type='email' [(ngModel)]="user.email" disabled></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position='floating'>UserName</ion-label>
+      <ion-input type='text' [(ngModel)]="user.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>Phone No:</ion-label>
+      <ion-input type='number' [(ngModel)]="user.number"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button color='primary' expand='block' (click)='updateUser(user)' [disabled]='user.username == "" || user.number == null'>Update</ion-button>
+</ion-content>

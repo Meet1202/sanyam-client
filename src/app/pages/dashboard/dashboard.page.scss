@@ -1,0 +1,21 @@
+ion-img{
+  max-height: 75px;  
+        max-width: 75px; 
+        position: absolute;  
+        top: 0;  
+        bottom: 0;  
+        left: 0;  
+        right: 0;  
+        margin: auto;
+        box-shadow: 0 0 5px gray;
+}
+.countReads{
+    position: absolute;
+    right: 0;
+    top: -30%;
+}
+.notification{
+  width: 50px;
+  float: right;
+  position: relative;
+}

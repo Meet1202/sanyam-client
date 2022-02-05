@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+       Function Media
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <ion-list *ngIf="dataFound">
+    <ion-item-sliding *ngFor="let image of images; let i=index">
+        <ion-item class="no-padding" (click)="presentPopover(image.id)">
+            <ion-label>{{i+1}}) {{image.functionName}}</ion-label>
+        </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+    <p class="noDataFound ion-justify-content-center" *ngIf="!dataFound">No Media Found.</p>
+</ion-content>

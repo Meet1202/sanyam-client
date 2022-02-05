@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Notification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="dataFound">
+    <ion-item-sliding *ngFor="let notify of notifies">
+      <ion-item class="no-padding">
+        <ion-card style="width: 100%;">
+          <ion-card-content>
+            <p>Date: {{notify.date | date:'medium'}}</p>
+            <p>From: {{ notify.email }}</p>
+            <p>Message: {{ notify.message }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+  <p class="noDataFound ion-justify-content-center" *ngIf="!dataFound">No Notification Found.</p>
+</ion-content>

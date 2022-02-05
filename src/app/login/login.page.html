@@ -1,0 +1,38 @@
+<div class="body">
+    <div class="login ion-text-center">
+        <div class="image mb-5">
+            <ion-img class="image-css" src="assets/img/logo.png"></ion-img>
+        </div>
+
+        <ion-card class="card">
+            <ion-card-header>
+                <ion-card-title class="mb-3">LOGIN
+                </ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                <form #loginForm="ngForm" (ngSubmit)="login()" class="form ion-text-center">
+                    <ion-item>
+                        <ion-label position="floating">Email</ion-label>
+                        <ion-input type="email" name="email" [(ngModel)]="user.email" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Password</ion-label>
+                        <ion-input type="password" name="password" [(ngModel)]="user.password" class="password"
+                                   required></ion-input>
+                    </ion-item>
+
+                    <ion-button class="loginBtn mt-5" color="primary" type="submit" [disabled]="loginForm.invalid">
+                        Login
+                    </ion-button>
+                </form>
+            </ion-card-content>
+        </ion-card>
+        <div class="ion-margin-top">
+            <ion-router-link routerLink='/resetpassword' style="color: white">Forget Password</ion-router-link>
+        </div>
+
+    </div>
+
+</div>

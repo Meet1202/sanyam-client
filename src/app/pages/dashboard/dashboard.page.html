@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-title style="font-size: 23px;">Dashboard</ion-title>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon style="float: right; font-size: 30px; margin-left: 5px;" name="exit-outline" (click)='logout()'></ion-icon>
+          </div>
+          <div class="notification">
+            <ion-badge class="countReads" color="danger" *ngIf="unReadCounts > 0">{{unReadCounts}}</ion-badge>
+            <ion-icon style="float: right; font-size: 30px;" [routerLink]="['/menu/notification']" name="notifications-outline">
+            </ion-icon>
+           </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="">
+  <ion-card>
+    <ion-card-content>
+      <p class="text-center">Start up : Nov '2019</p>
+      <p>&nbsp; આપણા સંયમ ગ્રુપ દ્વારા વર્ષ - ૨૦૧૯ થી જરૂરિયાતમંદ વ્યક્તિઓને મદદ કરવાની શરૂઆત કરેલી છે.</p>
+      <p>&nbsp; આ કાર્યમાં અનાથઆશ્રમ, વૃદ્ધાશ્રમ 🏣જેવી વગેરે જગ્યાઓ પર કાર્યક્રમ કરવામાં આવે છે. આ કાર્યક્રમમાં એમને જરૂરિયાતની વસ્તુઓ👕 તથા તેમને આનંદ થાય તેવી રમતો⛹🏻‍♂️, ભજન🛕 વગેરેનું આયોજન કરવામાં આવે છે.</p>
+      <p>&nbsp; સંયમ ગ્રુપને તમે અત્યાર સુધી જે સાથ - સહકાર🙏 આપ્યો છે તે બદલ આપનો ખુબ - ખુબ આભાર. આ રીતે સંયમ ગ્રુપને સાથ - સહકાર આપતા રહેજો જેથી જરૂરિયાતમંદ વ્યક્તિઓને મદદ કરી શકાય.</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" push="0">
+        <ion-card>
+          <ion-card-content class="ion-text-center">
+            <h2>Total Members</h2>
+            <h1>{{totalUsers}}</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" push="0">
+        <ion-card>
+          <ion-card-content class="ion-text-center">
+            <h2>Total Functions</h2>
+            <h1>{{totalFuntions}}</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <!-------------------------------  show directors   -------------------------------------------------->
+  <div *ngIf="showDirectors">
+    <h6 class="text-center" style="margin-top: 40px;">Directors</h6>
+    <ion-slides pager="false" [options]="slideOpts">
+      <ion-card style="width: 100%">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3" push="0" class="d-flex align-items-center">
+              <ion-avatar>
+                <ion-img *ngIf="showDirectors.image" [src]="showDirectors.image"></ion-img>
+                <ion-img *ngIf="!showDirectors.image" src="assets/img/person-icon.png"></ion-img>
+              </ion-avatar>
+            </ion-col>
+            <ion-col size="8"  class="ion-align-items-start">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-2>Name</ion-col>
+                  <ion-col col-10>{{ showDirectors.username }}</ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-2>Designation</ion-col>
+                  <ion-col col-10>{{ showDirectors.designation }}</ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-2>Mobile</ion-col>
+                  <ion-col col-10>{{ showDirectors.number }}</ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+    </ion-slides>
+  </div>
+
+<!-------------------------------  show mentors   -------------------------------------------------->
+ <div *ngIf="showMentors.length > 0">
+   <h6 class="text-center mt-4" style="margin-top: 40px;">Mentors</h6>
+   <ion-slides pager="false" style="height: 100px" [options]="slideOpts" class="sliderMain">
+     <ion-slide  *ngFor="let user of showMentors">
+       <ion-card style="width: 100%;" class="slider">
+         <ion-grid>
+           <ion-row>
+             <ion-col size="3" push="0" class="image">
+               <ion-avatar>
+                 <ion-img *ngIf="user.image" [src]="user.image"></ion-img>
+                 <ion-img *ngIf="!user.image" src="assets/img/person-icon.png"></ion-img>
+               </ion-avatar>
+             </ion-col>
+             <ion-col size="8"  class="ion-align-items-start">
+               <ion-grid>
+                 <ion-row>
+                   <ion-col>Name</ion-col>
+                   <ion-col col-3>{{ user.username }}</ion-col>
+                 </ion-row>
+                 <ion-row>
+                   <ion-col>Designation</ion-col>
+                   <ion-col col-3>{{ user.designation }}</ion-col>
+                 </ion-row>
+               </ion-grid>
+             </ion-col>
+           </ion-row>
+         </ion-grid>
+       </ion-card>
+     </ion-slide>
+   </ion-slides>
+ </div>
+</ion-content>
+

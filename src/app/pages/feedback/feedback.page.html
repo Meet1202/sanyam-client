@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+        <ion-label position="floating">Enter your Feedback..</ion-label>
+        <ion-textarea [(ngModel)]="feedback.message"></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button color='primary' expand='block' (click)='send(feedback)' [disabled]="feedback.message==null">send</ion-button>
+<hr/>
+  <ion-list *ngIf="dataFound">
+      <ion-item-sliding *ngFor="let feedback of feeds">
+        <ion-item class="no-padding">
+          <ion-card style="width: 100%;">
+            <ion-card-content>
+              <p>Date: {{feedback.date | date:'medium'}}</p>
+              <p>From: {{ feedback.email }}</p>
+              <p>Message: {{ feedback.message }}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+        <ion-item-options slide="end">
+          <ion-item-option color='danger' (click)='deleteFeedBack(feedback.id)'>
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+  </ion-list>
+
+  <p class="noDataFound ion-justify-content-center" *ngIf="!dataFound">No Feedback Found.</p>
+
+</ion-content>

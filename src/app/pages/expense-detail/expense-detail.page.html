@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Expense Details</ion-title>
+        <ion-buttons slot="end" (click)="dismiss()" class="mr-4">
+            Close
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-content>
+            <ion-card-subtitle><strong>Name:</strong> {{expense.functionName}}</ion-card-subtitle>
+            <ion-card-subtitle><strong>Date:</strong> {{expense.date | date:'mediumDate'}}</ion-card-subtitle>
+            <ion-card-subtitle><strong>Total Money:</strong> {{expense.money}}</ion-card-subtitle>
+            <ion-card-subtitle>
+                <ion-label><strong>Description:</strong></ion-label>
+                <ion-textarea [disabled]="true">{{expense.description}}</ion-textarea>
+            </ion-card-subtitle>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
